@@ -35,13 +35,15 @@ def getMap():
     return {
         'nameeng': nameeng,
         'namesvk': namesvk,
-        'difficulty': difficulty
-    }
+        'difficulty': difficulty,
+        'file': mapfile,
+        'session': session['servedMaps']
+    }, 200
 
 @app.route('/finish')
 def finishedGame():
     session.pop('servedMaps', None)
-
+    return f"it should've popped the thing if this false: {'servedMaps' in session}"
 
 
 #getMap()
