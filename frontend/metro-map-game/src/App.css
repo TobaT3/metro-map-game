@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-*{
-  color:aqua;
-}
-
 
 .content{
   background-image: url('images/bg.jpg');
@@ -22,6 +18,7 @@
 
 p{
   font-size: 5vw;
+  color:orange;
 }
 
 .title{
