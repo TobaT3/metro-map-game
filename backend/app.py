@@ -17,7 +17,8 @@ def test():
 @app.route('/getmap')
 def getMap():
     if 'servedMaps' not in session:
-        session['servedMaps'] = []
+        session.permanent = True        
+        session['servedMaps'] = list()
     
     #mapfile =  random.choice(os.listdir("/home/toba/Code/metro-map-game/metro-map-game/backend/static"))
     mapfile =  random.choice(os.listdir(os.path.realpath(os.path.join(os.path.dirname(__file__), 'static'))))
@@ -37,13 +38,13 @@ def getMap():
     splitstr = mapfile.split("-")
     nameeng = splitstr[0]
     namesvk = splitstr[1]
-    difficulty = int(splitstr[2][0])
+    #difficulty = int(splitstr[2][0]) #difficulty deprecated
 
     return {
         'nameeng': nameeng,
         'namesvk': namesvk,
-        'difficulty': difficulty,
-        'file': f"/static/{mapfile}"
+        'file': f"/static/{mapfile}",
+        'session': session['servedMaps']
     }, 200
 
 @app.route('/finish')#methods=['POST']
