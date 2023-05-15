@@ -2,12 +2,11 @@ import './App.css';
 
 function Form({ inputValue }) {
   return (
-    <div className="App">
-      <header id="App-header">
-        <p>
-            Guess the map!
-        </p>
-      </header>
+    <div className="Form">
+      <div className='content'>
+        <p>Guess the thing!</p>
+        <img src = {require("./images/placeholder.png")}/>
+      </div>
     </div>
   );
 }
