@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+#App-header {
   background-image: url('images/bg.jpg');
   background-repeat: no-repeat;
   background-size: 80%;
@@ -23,19 +23,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 10vw;
+  color:aqua
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+button{
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-top: 1.5vw;
+  padding-bottom: 1.5vw;
 }
