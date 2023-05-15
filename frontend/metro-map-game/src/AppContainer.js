@@ -1,8 +1,11 @@
 import App from './App';
+import Form from './form';
 
 function AppContainer(){
     return(
-        <App />
+        //<App />
+        //TODO: make it render app first, then switch to form
+        <Form />
     )
 }
 
