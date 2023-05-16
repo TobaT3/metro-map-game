@@ -29,7 +29,7 @@ def getMap():
         mapfile =  random.choice(os.listdir(os.path.realpath(os.path.join(os.path.dirname(__file__), 'static'))))
         
         i += 1
-        if i > 20:
+        if i > 50:
             return "Loop detected. Will fix this at some point", 508
 
     
@@ -37,13 +37,14 @@ def getMap():
 
     splitstr = mapfile.split("-")
     nameeng = splitstr[0]
-    namesvk = splitstr[1]
+    namesvk = splitstr[1][:-4]
     #difficulty = int(splitstr[2][0]) #difficulty deprecated
 
     return {
         'nameeng': nameeng,
         'namesvk': namesvk,
         'file': f"/static/{mapfile}",
+        'slength': len(session['servedMaps']),
         'session': session['servedMaps']
     }, 200
 
@@ -55,6 +56,25 @@ def finishedGame():
         return "can't clear session data", 500
     else:
         return "cleared session", 200
+
+@app.route('/score')
+def storeScore():
+    if 'score' not in session:
+        session['score'] = 0
+
+    if request.method == 'GET':
+        score = session['score']
+        return str(score), 200
+    elif request.method == 'POST':
+        rjson = request.get_json()
+        score = int(rjson['score'])
+        
+        session['score'] = score
+
+        return 200
+    
+
+    
 
 
 #getMap()
