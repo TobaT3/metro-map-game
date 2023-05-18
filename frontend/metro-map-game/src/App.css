@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+}
+
+#score-text{
+  font-size: 1vw;
+  color:lime;
+}
+
+.content{
+  background-image: url('images/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+p{
+  font-size: 5vw;
+  color:orange;
+}
+
+.title{
+  font-size: 10vw;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+img{
+  height: 20rem;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button{
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-top: 1.5vw;
+  padding-bottom: 1.5vw;
+}
