@@ -2,7 +2,7 @@ import App from './App';
 import { BrowserRouter, Routes, Route, Outlet, redirect } from "react-router-dom";
 import Form from './form';
 import useLocalStorageState from 'use-local-storage-state';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function AppContainer(){
     const [inputValue, setInputValue] = useState('');
