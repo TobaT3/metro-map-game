@@ -7,11 +7,12 @@ import React, { useState, useEffect } from 'react';
 function AppContainer(){
     const [inputValue, setInputValue] = useState('');
     const [score, setScore] = useLocalStorageState('score', 0);
-    const [correctAnswer, setCorrectAnswer] = useState('Amogus');
+    const [mapInfo, setMapInfo] = useLocalStorageState();
     const submitHandler = () => {
-        if(inputValue === correctAnswer){
+        if(inputValue.toLowerCase() === mapInfo.nameeng || inputValue.toLowerCase() === mapInfo.namesvk){
             setScore(score + 1);
         }else{
+            console.log(mapInfo.nameeng);
             setScore(0);
         }
     }
@@ -19,11 +20,11 @@ function AppContainer(){
     useEffect(() => {
         fetch('http://localhost:5000/getmap').then(response => {
             response.json().then(data => {
-                console.log(data);
+                setMapInfo(data);
+                console.log(mapInfo);
             })
         })
     },[])
-
     return(
         <>
         <BrowserRouter>
