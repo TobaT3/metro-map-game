@@ -16,6 +16,14 @@ function AppContainer(){
         }
     }
 
+    useEffect(() => {
+        fetch('http://localhost:5000/getmap').then(response => {
+            response.json().then(data => {
+                console.log(data);
+            })
+        })
+    },[])
+
     return(
         <>
         <BrowserRouter>
