@@ -3,8 +3,10 @@ import random
 from flask import Flask
 from flask import session
 from flask import request
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 #app.secret_key(FLASK_SESSION_KEY)
 app.secret_key = '6e 67 4d ff 31 bb b4 d1 e3 e2 ab 7b 36 c5 a4 99 ' #KEEP ZIS SECRET BITCHAROO
 #change the secret key when hosting it (so it isnt on github)
@@ -43,9 +45,7 @@ def getMap():
     return {
         'nameeng': nameeng,
         'namesvk': namesvk,
-        'file': f"/static/{mapfile}",
-        'slength': len(session['servedMaps']),
-        'session': session['servedMaps']
+        'file': f"/static/{mapfile}"
     }, 200
 
 @app.route('/finish')#methods=['POST']
@@ -57,21 +57,21 @@ def finishedGame():
     else:
         return "cleared session", 200
 
-@app.route('/score')
-def storeScore():
-    if 'score' not in session:
-        session['score'] = 0
+    @app.route('/score')
+    def storeScore():
+        if 'score' not in session:
+            session['score'] = 0
 
-    if request.method == 'GET':
-        score = session['score']
-        return str(score), 200
-    elif request.method == 'POST':
-        rjson = request.get_json()
-        score = int(rjson['score'])
-        
-        session['score'] = score
+        if request.method == 'GET':
+            score = session['score']
+            return str(score), 200
+        elif request.method == 'POST':
+            rjson = request.get_json()
+            score = int(rjson['score'])
+            
+            session['score'] = score
 
-        return 200
+            return 200
     
 
     
