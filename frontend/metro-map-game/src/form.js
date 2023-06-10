@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 
-function Form({ fieldValue, valueChanger, submitter, score }) {
+function Form({ fieldValue, valueChanger, submitter, score, image }) {
   return (
     <div className="Form">
       <div className='content'>
