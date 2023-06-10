@@ -45,7 +45,7 @@ def getMap():
     return {
         'nameeng': nameeng,
         'namesvk': namesvk,
-        'file': f"/static/{mapfile}"
+        'file': f"localhost:5000/static/{mapfile}"
     }, 200
 
 @app.route('/finish')#methods=['POST']
