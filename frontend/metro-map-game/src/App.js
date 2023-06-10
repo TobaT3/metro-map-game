@@ -7,9 +7,9 @@ function App() {
     <div className="App">
       <div className='content'>
         <p className='title'>
-          Sup dude
+          The Metro Map Game!
         </p>
-        <Link to='/game'>BEGIN</Link>
+        <Link to='/game' id='start-button'>BEGIN</Link>
       </div>
     </div>
   );

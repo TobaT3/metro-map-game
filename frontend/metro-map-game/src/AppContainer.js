@@ -11,15 +11,12 @@ function AppContainer(){
     const submitHandler = () => {
         if(inputValue.toLowerCase() === mapInfo.nameeng || inputValue.toLowerCase() === mapInfo.namesvk){
             setScore(score + 1);
-        }else if(inputValue === 'reset'){
-            localStorage.clear()
         }else{
             setScore(0);
         }
     }
 
     useEffect(() => {
-        console.log('kako');
         fetch('http://localhost:5000/getmap').then(response => {
             response.json().then(data => {
                 setMapInfo(data);
@@ -27,12 +24,10 @@ function AppContainer(){
         })
         return () => {
             setMapInfo(undefined);
-            console.log(mapInfo)
         }
     },[score])
     return(
         <>
-        <p>{mapInfo?.namesvk ?? "Not loaded yet"}</p>
         <BrowserRouter>
             <Routes>
                 <Route index element={<App />}></Route>
