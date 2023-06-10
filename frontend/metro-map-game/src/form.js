@@ -7,7 +7,7 @@ function Form({ fieldValue, valueChanger, submitter, score, image }) {
       <div className='content'>
         <p>Guess the thing!</p>
         <p id='score-text'>{'Score: '+score}</p>
-        <img src = {require("./images/placeholder.png")}/>
+        <img src = {image ? image : require("./images/placeholder.png")}/>
         <form onSubmit={submitter}>
             <input type='text' value = {fieldValue} onChange={(e) => {valueChanger(e.target.value)}}></input>
             <input type = 'submit'></input>
