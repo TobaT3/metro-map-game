@@ -9,8 +9,7 @@ app = Flask(__name__)
 CORS(app)
 #app.secret_key(FLASK_SESSION_KEY)
 app.secret_key = '6e 67 4d ff 31 bb b4 d1 e3 e2 ab 7b 36 c5 a4 99 ' #KEEP ZIS SECRET BITCHAROO
-#change the secret key when hosting it (so it isnt on github)
-
+#change the secret key when hosting it (so it isnt on github
 
 @app.route('/')
 def test():
@@ -44,7 +43,8 @@ def getMap():
     return {
         'nameeng': nameeng,
         'namesvk': namesvk,
-        'file': f"https://localhost:5000/static/{mapfile}"
+        'file': f"http://localhost:5000/static/{mapfile}",
+        'session': session['servedMaps']
     }, 200
 
 @app.route('/finish')#methods=['POST']
