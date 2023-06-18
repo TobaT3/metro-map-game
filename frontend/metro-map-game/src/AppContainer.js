@@ -31,7 +31,7 @@ function AppContainer(){
         <BrowserRouter>
             <Routes>
                 <Route index element={<App />}></Route>
-                <Route path='game' element={<Form fieldValue={inputValue} valueChanger={setInputValue} score = {score} submitter={submitHandler} image={mapInfo && "http://localhost:5000"+mapInfo.file}/>}></Route>
+                <Route path='game' element={<Form fieldValue={inputValue} valueChanger={setInputValue} score = {score} submitter={submitHandler} image={mapInfo && mapInfo.file}/>}></Route>
             </Routes>
         </BrowserRouter>
         <Outlet />
